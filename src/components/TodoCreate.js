@@ -6,7 +6,7 @@ import { useTodoDispatch, useTodoNextId } from "../TodoContext";
 const CircleButton = styled.button`
   background: #ff8399;
   &:hover {
-    background: #63e6be;
+    background: #d3d3d3;
   }
   &:active {
     background: #20c997;
@@ -38,7 +38,7 @@ const CircleButton = styled.button`
     css`
       background: #ff6b6b;
       &:hover {
-        background: #ff8787;
+        background: #d3d3d3;
       }
       &:active {
         background: #fa5252;

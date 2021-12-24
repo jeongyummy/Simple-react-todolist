@@ -32,12 +32,15 @@ function TodoHead() {
   const undoneTasks = todos.filter((todo) => !todo.done);
   //완료 되지 않는 값 고르기
 
+  // 날짜 불러오기
   const today = new Date();
   const dateString = today.toLocaleDateString("ko-KR", {
     year: "numeric",
     month: "long",
     day: "numeric",
   });
+
+  //요일 불러오기
   const dayName = today.toLocaleDateString("ko-KR", { weekday: "long" });
 
   return (

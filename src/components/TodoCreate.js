@@ -84,9 +84,14 @@ function TodoCreate() {
   const nextId = useTodoNextId();
 
   const onToggle = () => setOpen(!open);
-  const onChange = (e) => setValue(e.target.value);
+  const onChange = (e) => {
+    setValue(e.target.value);
+  };
   const onSubmit = (e) => {
     e.preventDefault();
+    if (value === "") {
+      return alert("내용을 입력하세요");
+    }
     dispatch({
       type: "CREATE",
       todo: {

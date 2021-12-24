@@ -42,8 +42,8 @@ function TodoHead() {
 
   return (
     <TodoHeadBlock>
-      <h1>2021년 12월 14일</h1>
-      <div className="day">화요일</div>
+      <h1>{dateString}</h1>
+      <div className="day">{dayName}</div>
       <div className="tasks-left">
         해야할 일 {todos.length}개 중 {undoneTasks.length} 개 남음
       </div>

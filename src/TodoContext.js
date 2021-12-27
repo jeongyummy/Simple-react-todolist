@@ -1,26 +1,12 @@
 import React, { useReducer, createContext, useContext, useRef } from "react";
 
 const initialTodos = [
-  {
-    id: 1,
-    text: "정연",
-    done: true,
-  },
-  {
-    id: 2,
-    text: "상오니",
-    done: true,
-  },
-  {
-    id: 3,
-    text: "미원",
-    done: false,
-  },
-  {
-    id: 4,
-    text: "숏다리",
-    done: false,
-  },
+  // {
+  //   id: 0,
+  //   text: "",
+  //   done: false,
+  // },
+  // 초기값은 그냥 빈 배열로 선언
 ];
 
 function todoReducer(state, action) {

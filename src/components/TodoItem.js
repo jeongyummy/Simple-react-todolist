@@ -2,6 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { MdDone, MdDelete } from "react-icons/md";
 import { useTodoDispatch } from "../TodoContext";
+import TimeCounting from "time-counting";
 
 const Remove = styled.div`
   display: flex;
@@ -58,16 +59,24 @@ const Text = styled.div`
     `}
 `;
 
+const TimeCss = styled.span`
+  padding-right: 20px;
+  font-size: 13px;
+  color: light-gray;
+`;
+
 function TodoItem({ id, done, text }) {
   const dispatch = useTodoDispatch();
   const onToggle = () => dispatch({ type: "TOGGLE", id });
   const onRemove = () => dispatch({ type: "REMOVE", id });
+  const time = TimeCounting(new Date());
   return (
     <TodoItemBlock>
       <CheckCircle done={done} onClick={onToggle}>
         {done && <MdDone />}
       </CheckCircle>
       <Text done={done}>{text}</Text>
+      <TimeCss>{time}</TimeCss>
       <Remove onClick={onRemove}>
         <MdDelete />
       </Remove>

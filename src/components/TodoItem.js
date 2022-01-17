@@ -1,8 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { MdDone, MdDelete } from "react-icons/md";
+import { MdDone, MdDelete, MdArrowBack } from "react-icons/md";
 import { useTodoDispatch } from "../TodoContext";
-import TimeCounting from "time-counting";
 
 const Remove = styled.div`
   display: flex;
@@ -14,7 +13,20 @@ const Remove = styled.div`
   &:hover {
     color: #ff6b6b;
   }
-  display: none;
+  display: block;
+`;
+
+const Modified = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #dee2e6;
+  font-size: 24px;
+  cursor: pointer;
+  &:hover {
+    color: #ff6b6b;
+  }
+  display: block;
 `;
 
 const TodoItemBlock = styled.div`
@@ -59,24 +71,27 @@ const Text = styled.div`
     `}
 `;
 
-const TimeCss = styled.span`
-  padding-right: 20px;
-  font-size: 13px;
-  color: light-gray;
-`;
+// const TimeCss = styled.span`
+//   padding-right: 20px;
+//   font-size: 13px;
+//   color: light-gray;
+// `;
 
 function TodoItem({ id, done, text }) {
   const dispatch = useTodoDispatch();
   const onToggle = () => dispatch({ type: "TOGGLE", id });
   const onRemove = () => dispatch({ type: "REMOVE", id });
-  const time = TimeCounting(new Date());
+  const onModify = () => dispatch({ type: "MODIFY", id });
+  // const time = TimeCounting(new Date());
   return (
     <TodoItemBlock>
       <CheckCircle done={done} onClick={onToggle}>
         {done && <MdDone />}
       </CheckCircle>
       <Text done={done}>{text}</Text>
-      <TimeCss>{time}</TimeCss>
+      <Modified onClick={onModify}>
+        <MdArrowBack />
+      </Modified>
       <Remove onClick={onRemove}>
         <MdDelete />
       </Remove>

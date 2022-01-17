@@ -19,6 +19,10 @@ function todoReducer(state, action) {
       );
     case "REMOVE":
       return state.filter((todo) => todo.id !== action.id);
+    case "MODIFY":
+      return state.map((todo) =>
+        todo.id === action.id ? { ...todo, done: !todo.done } : todo
+      );
     default:
       throw new Error("다루지 않는 action type 입니다.");
   }

@@ -1,5 +1,6 @@
 import React from "react";
 import { createGlobalStyle } from "styled-components";
+import LoginForm from "./components/TodoLogin";
 import TodoTemplate from "./components/TodoTemplate";
 import TodoHead from "./components/TodoHead";
 import TodoList from "./components/TodoList";
@@ -17,6 +18,7 @@ function App() {
     <>
       <TodoProvider>
         <GlobalStyle />
+        <LoginForm />
         <TodoTemplate>
           <TodoHead />
           <TodoList />
